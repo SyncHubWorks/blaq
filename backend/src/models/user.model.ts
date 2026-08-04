@@ -32,7 +32,7 @@ const userSchema = new Schema<IUser>(
     role: {
       type: String,
       enum: ["customer", "creative", "admin"],
-      default: "student",
+      default: "customer",
     },
     isVerified: {
       type: Boolean,

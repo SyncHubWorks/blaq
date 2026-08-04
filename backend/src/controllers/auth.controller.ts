@@ -59,11 +59,11 @@ export const loginUser = async (req: Request, res: Response) => {
 };
 
 export const signupUser = async (req: Request, res: Response) => {
-  const { name, surname, email, password, role, pushToken } = req.body;
+  const { fullName, email, password, role, pushToken } = req.body;
 
   try {
     // Validations
-    if (!name || !surname || !email || !password) {
+    if (!fullName || !email || !password) {
       return res.status(400).json({ message: "All fields must be filled" });
     }
     if (!validator.isEmail(email)) {
@@ -93,8 +93,7 @@ export const signupUser = async (req: Request, res: Response) => {
 
     // create a new user
     const user = new User({
-      name,
-      surname,
+      fullName,
       email,
       role,
       password: hashedPassword,
@@ -108,7 +107,7 @@ export const signupUser = async (req: Request, res: Response) => {
     await user.save();
 
     try {
-      await sendWelcomeEmail(email, name, ENV.FRONTEND_URL!);
+      await sendWelcomeEmail(email, fullName, ENV.FRONTEND_URL!);
     } catch (error) {
       console.log(error);
     }

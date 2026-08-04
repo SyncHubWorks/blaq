@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react";
 import { useEffect } from "react";
 import { useAuthStore } from "./store/useAuthStore";
 import { Toaster } from "react-hot-toast";
+import BookingWizard from "./pages/customer/booking/BookingWizard";
 
 function App() {
   const { checkAuth, isCheckingAuth, user } = useAuthStore();
@@ -32,19 +33,14 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         {/* PROTECTED ROUTES */}
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/register"
-          element={!user ? <Register /> : <Navigate to="/" />}
-        />
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/customer/booking" element={<BookingWizard />} />
         {/* BUYER ROUTES */}
 
         {/* FALLOUT */}
       </Routes>
+
       <Toaster />
     </>
   );

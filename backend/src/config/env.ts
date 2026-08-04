@@ -12,10 +12,10 @@ type ENVTYPES = {
   RESEND_API_KEY: string | undefined;
   EMAIL_FROM: string | undefined;
   EMAIL_FROM_NAME: string | undefined;
-  CLOUDINARY_CLOUD_NAME: string | undefined;
-  CLOUDINARY_API_KEY: string | undefined;
-  CLOUDINARY_API_SECRET: string | undefined;
-  GEMINI_API_KEY: string | undefined;
+  // CLOUDINARY_CLOUD_NAME: string | undefined;
+  // CLOUDINARY_API_KEY: string | undefined;
+  // CLOUDINARY_API_SECRET: string | undefined;
+  // GEMINI_API_KEY: string | undefined;
 };
 
 export const ENV: ENVTYPES = {
@@ -30,10 +30,10 @@ export const ENV: ENVTYPES = {
   RESEND_API_KEY: process.env.RESEND_API_KEY,
   EMAIL_FROM: process.env.EMAIL_FROM,
   EMAIL_FROM_NAME: process.env.EMAIL_FROM_NAME,
-  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
-  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
-  GEMINI_API_KEY: process.env.GEMINI_API_KEY,
+  // CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  // CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+  // CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
+  // GEMINI_API_KEY: process.env.GEMINI_API_KEY,
 };
 
 const requiredKeys: (keyof ENVTYPES)[] = [
@@ -46,10 +46,10 @@ const requiredKeys: (keyof ENVTYPES)[] = [
   "RESEND_API_KEY",
   "EMAIL_FROM",
   "EMAIL_FROM_NAME",
-  "CLOUDINARY_CLOUD_NAME",
-  "CLOUDINARY_API_KEY",
-  "CLOUDINARY_API_SECRET",
-  "GEMINI_API_KEY",
+  // "CLOUDINARY_CLOUD_NAME",
+  // "CLOUDINARY_API_KEY",
+  // "CLOUDINARY_API_SECRET",
+  // "GEMINI_API_KEY",
 ];
 
 for (const key of requiredKeys) {

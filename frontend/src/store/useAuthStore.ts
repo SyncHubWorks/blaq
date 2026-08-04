@@ -10,8 +10,7 @@ type LoginData = {
 };
 
 type SignupData = {
-  name: string;
-  surname: string;
+  fullName: string;
   email: string;
   password: string;
 };

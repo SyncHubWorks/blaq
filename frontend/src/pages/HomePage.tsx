@@ -1,37 +1,19 @@
-import Navbar from "../components/layout/Navbar";
-import Hero from "../components/home/Hero";
-import BeautyExperience from "../components/home/BeautyExperience";
-import CreativeSpaces from "../components/home/CreativeSpaces";
-import BecomeOperator from "../components/home/BecomeOperator";
-import Memberships from "../components/home/Memberships";
-import Products from "../components/home/Products";
-import Events from "../components/home/Events";
-import CorporateServices from "../components/home/CorporateServices";
-import StartBusiness from "../components/home/StartBusiness";
-import AboutUs from "../components/home/AboutUs";
-import Contact from "../components/home/Contact";
-import Footer from "../components/layout/Footer";
-import ChatBot from "../components/chatbot/ChatBot";
+import Unathorized from "../components/Unathorized";
+import { useAuthStore } from "../store/useAuthStore";
+import AdminDashboard from "./admin/AdminDashboard";
+import CustomerDashboard from "./customer/CustomerDashboard";
 
 function HomePage() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <BeautyExperience />
-      <CreativeSpaces />
-      <BecomeOperator />
-      <Memberships />
-      <Products />
-      <Events />
-      <CorporateServices />
-      <StartBusiness />
-      <AboutUs />
-      <Contact />
-      <Footer />
-      <ChatBot />
-    </>
-  );
+  const { user } = useAuthStore();
+
+  switch (user?.role) {
+    case "customer":
+      return <CustomerDashboard />;
+    case "admin":
+      return <AdminDashboard />;
+    default:
+      return <Unathorized />;
+  }
 }
 
 export default HomePage;

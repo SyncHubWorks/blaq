@@ -33,9 +33,18 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         {/* PROTECTED ROUTES */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/customer/booking" element={<BookingWizard />} />
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/register"
+          element={!user ? <Register /> : <Navigate to={"/"} />}
+        />
+        <Route
+          path="/customer/booking"
+          element={user ? <BookingWizard /> : <Navigate to={"/login"} />}
+        />
         {/* BUYER ROUTES */}
 
         {/* FALLOUT */}

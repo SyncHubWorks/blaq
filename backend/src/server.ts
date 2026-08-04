@@ -9,6 +9,7 @@ import { ENV } from "./config/env";
 import connectDB from "./config/database";
 
 import authRoutes from "./routes/auth.route";
+import bookingRoutes from "./routes/booking.route";
 
 const app = express();
 const publicDir = path.join(process.cwd(), "public");
@@ -39,6 +40,7 @@ app.use("/health", (_req, res) => {
 
 // API ENDPOINTS
 app.use("/api/auth", authRoutes);
+app.use("/api/bookings", bookingRoutes);
 
 if (fs.existsSync(publicDir)) {
   app.use(express.static(publicDir));

@@ -1,9 +1,9 @@
-import { Menu, Bell, MessageCircle } from "lucide-react";
+import { Bell, MessageCircle } from "lucide-react";
 import { Link } from "react-router";
 import { useAuthStore } from "../../store/useAuthStore";
 
 function CustomerDashboard() {
-  const { logout } = useAuthStore();
+  const { logout, user } = useAuthStore();
 
   const handleLogout = () => {
     // TODO: add confirmation modal before logging out
@@ -24,7 +24,7 @@ function CustomerDashboard() {
             Good Morning ☀️
           </h2>
 
-          <p className="text-center text-2xl mt-2">Takalani</p>
+          <p className="text-center text-2xl mt-2">{user?.fullName}</p>
 
           <div className="flex justify-center mt-5">
             <span className="bg-[#c19b6c] text-black text-xs px-4 py-2 rounded-full font-semibold">
@@ -87,7 +87,9 @@ function CustomerDashboard() {
 
         <header className="h-20 border-b border-neutral-800 px-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold">Good Morning, Takalani ☀️</h1>
+            <h1 className="text-3xl font-bold">
+              Good Morning, {user?.fullName} ☀️
+            </h1>
 
             <p className="text-neutral-400 mt-1">
               Tuesday, 4 August 2026 • 08:45 AM
@@ -110,7 +112,7 @@ function CustomerDashboard() {
         <main className="flex-1 p-8 bg-[#0b0b0b]">
           {/* Welcome Banner */}
 
-          <div className="bg-gradient-to-r from-[#c19b6c] to-[#9d7a50] rounded-2xl p-8 text-black">
+          <div className="bg-linear-to-r from-[#c19b6c] to-[#9d7a50] rounded-2xl p-8 text-black">
             <h2 className="text-4xl font-bold">Welcome Back 👋</h2>
 
             <p className="mt-3 text-lg">

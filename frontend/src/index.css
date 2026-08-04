@@ -43,3 +43,6 @@
   --animate-fadeIn: fadeIn 0.2s ease-out;
   --animate-slideDown: slideDown 0.3s ease-out;
 }
+html {
+  scroll-behavior: smooth;
+}

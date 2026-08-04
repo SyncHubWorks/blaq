@@ -1,7 +1,20 @@
 import { Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
+import { useState } from "react";
+import { useAuthStore } from "../store/useAuthStore";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const LoginUser = useAuthStore((state) => state.login);
+  const isLoggingIn = useAuthStore((state) => state.isLoggingIn);
+
+  async function handleUserLogin(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    await LoginUser({ email, password });
+  }
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       {/* Back Button */}
@@ -24,7 +37,7 @@ function Login() {
             Beauty • Lifestyle • Art • Commerce
           </p>
 
-          <div className="w-20 h-[1px] bg-[#c19b6c] my-10"></div>
+          <div className="w-20 h-[px] bg-[#c19b6c] my-10"></div>
 
           <p className="text-neutral-400 text-center leading-8 max-w-md">
             Welcome to the premier creative platform where customers discover
@@ -42,7 +55,7 @@ function Login() {
               Sign in to continue to your account.
             </p>
 
-            <form className="space-y-7">
+            <form onSubmit={handleUserLogin} className="space-y-7">
               {/* Email */}
               <div>
                 <label className="block text-xs uppercase tracking-[0.25em] text-neutral-500 mb-3">
@@ -53,6 +66,8 @@ function Login() {
                   type="email"
                   placeholder="Enter your email"
                   className="w-full bg-transparent border-b border-neutral-700 py-3 outline-none focus:border-[#c19b6c] transition-colors"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
               </div>
 
@@ -75,6 +90,8 @@ function Login() {
                   type="password"
                   placeholder="Enter your password"
                   className="w-full bg-transparent border-b border-neutral-700 py-3 outline-none focus:border-[#c19b6c] transition-colors"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
               </div>
 
@@ -94,9 +111,10 @@ function Login() {
 
               <button
                 type="submit"
+                disabled={isLoggingIn}
                 className="w-full bg-white text-black py-4 uppercase tracking-[0.25em] font-semibold hover:bg-[#c19b6c] transition-all duration-300"
               >
-                Sign In
+                {isLoggingIn ? "Signing up..." : "Sign In"}
               </button>
 
               {/* Register */}

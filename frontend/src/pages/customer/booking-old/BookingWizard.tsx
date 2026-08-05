@@ -10,8 +10,8 @@ function BookingWizard() {
     date: "",
     time: "",
     paymentMethod: "",
+    notes: "",
   });
-
   const nextStep = () => {
     if (step < 7) {
       setStep(step + 1);
@@ -193,6 +193,7 @@ function BookingWizard() {
     "16:00",
     "16:30",
   ];
+
   return (
     <div className="min-h-screen bg-[#050505] text-white">
       {/* Header */}

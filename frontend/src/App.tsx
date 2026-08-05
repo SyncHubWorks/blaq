@@ -8,7 +8,11 @@ import { Loader2 } from "lucide-react";
 import { useEffect } from "react";
 import { useAuthStore } from "./store/useAuthStore";
 import { Toaster } from "react-hot-toast";
-import BookingWizard from "./pages/customer/booking/BookingWizard";
+import BookingWizard from "./pages/customer/booking-old/BookingWizard";
+import BookingMarketplace from "./pages/customer/BookingMarketplace";
+import Checkout from "./pages/customer/Checkout";
+import ReviewExperience from "./pages/customer/checkout/ReviewExperience";
+import PaymentComingSoon from "./pages/customer/payment/PaymentComingSoon";
 
 function App() {
   const { checkAuth, isCheckingAuth, user } = useAuthStore();
@@ -33,18 +37,15 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         {/* PROTECTED ROUTES */}
-        <Route
-          path="/login"
-          element={!user ? <Login /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path="/register"
-          element={!user ? <Register /> : <Navigate to={"/"} />}
-        />
-        <Route
-          path="/customer/booking"
-          element={user ? <BookingWizard /> : <Navigate to={"/login"} />}
-        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/customer/booking" element={<BookingMarketplace />} />
+
+        <Route path="/customer/booking-old" element={<BookingWizard />} />
+        <Route path="/customer/checkout" element={<Checkout />} />
+        <Route path="/customer/review" element={<ReviewExperience />} />
+
+        <Route path="/customer/payment" element={<PaymentComingSoon />} />
         {/* BUYER ROUTES */}
 
         {/* FALLOUT */}

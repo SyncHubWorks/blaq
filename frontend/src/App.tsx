@@ -13,7 +13,7 @@ import BookingMarketplace from "./pages/customer/BookingMarketplace";
 import Checkout from "./pages/customer/Checkout";
 import ReviewExperience from "./pages/customer/checkout/ReviewExperience";
 import PaymentComingSoon from "./pages/customer/payment/PaymentComingSoon";
-
+import Dashboard from "./pages/customer/CustomerDashboard";
 function App() {
   const { checkAuth, isCheckingAuth, user } = useAuthStore();
 
@@ -44,7 +44,7 @@ function App() {
         <Route path="/customer/booking-old" element={<BookingWizard />} />
         <Route path="/customer/checkout" element={<Checkout />} />
         <Route path="/customer/review" element={<ReviewExperience />} />
-
+        <Route path="/customer/dashboard" element={<Dashboard />} />
         <Route path="/customer/payment" element={<PaymentComingSoon />} />
         {/* BUYER ROUTES */}
 

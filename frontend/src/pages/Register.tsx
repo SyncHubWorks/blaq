@@ -27,8 +27,18 @@ function Register() {
     <div className="min-h-screen bg-[#050505] text-white">
       {/* Back Button */}
 
+      <div className="absolute top-8 left-8 z-50">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-neutral-400 hover:text-[#c19b6c] transition-colors uppercase tracking-[0.2em] text-xs"
+        >
+          ← Back to Home
+        </Link>
+      </div>
+
       <div className="grid lg:grid-cols-2 min-h-screen">
-        {/* ================= LEFT SIDE ================= */}
+        {/* ================= LEFT SIDE (Desktop) ================= */}
+
         <div className="hidden lg:flex flex-col items-center justify-center border-r border-neutral-800 px-16">
           <h1 className="text-7xl font-bold tracking-[0.35em]">BLAQ</h1>
 
@@ -36,7 +46,7 @@ function Register() {
             Beauty • Lifestyle • Art • Commerce
           </p>
 
-          <div className="w-20 h-[px] bg-[#c19b6c] my-10"></div>
+          <div className="w-20 h-px bg-[#c19b6c] my-10"></div>
 
           <p className="text-neutral-400 text-center leading-8 max-w-md">
             Create your account and discover South Africa's premier creative
@@ -45,8 +55,21 @@ function Register() {
         </div>
 
         {/* ================= RIGHT SIDE ================= */}
-        <div className="flex items-center justify-center px-8">
+        <div className="flex items-center justify-center px-8 py-24 lg:py-0">
           <div className="w-full max-w-md">
+            {/* Mobile Branding */}
+
+            <div className="lg:hidden text-center mb-14">
+              <h1 className="text-5xl font-bold tracking-[0.35em] text-white">
+                BLAQ
+              </h1>
+
+              <p className="mt-4 uppercase tracking-[0.45em] text-[#c19b6c] text-[10px]">
+                Beauty • Lifestyle • Art • Commerce
+              </p>
+
+              <div className="w-16 h-px bg-[#c19b6c] mx-auto my-8"></div>
+            </div>
             <h2 className="text-4xl font-bold mb-3">Create Account</h2>
 
             <p className="text-neutral-400 mb-10">

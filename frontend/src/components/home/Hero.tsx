@@ -1,4 +1,8 @@
-function Hero() {
+type HeroProps = {
+  appLoaded: boolean;
+};
+
+function Hero({ appLoaded }: HeroProps) {
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Background */}
@@ -7,7 +11,9 @@ function Hero() {
         <img
           src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=2000&q=80"
           alt="BLAQ"
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-transform duration-[10000ms] ease-out ${
+            appLoaded ? "scale-100" : "scale-110"
+          }`}
         />
 
         <div className="absolute inset-0 bg-black/65" />
@@ -17,11 +23,23 @@ function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-8">
         <div className="max-w-3xl">
-          <p className="uppercase tracking-[0.4em] text-[#c19b6c] text-sm mb-6">
+          <p
+            className={`uppercase tracking-[0.4em] text-[#c19b6c] text-sm mb-6 transition-all duration-1000 ease-out ${
+              appLoaded
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }`}
+          >
             Beauty • Lifestyle • Art • Commerce
           </p>
 
-          <h1 className="text-6xl lg:text-8xl font-bold leading-tight text-white">
+          <h1
+            className={`text-6xl lg:text-8xl font-bold leading-tight text-white transition-all duration-1000 ease-out ${
+              appLoaded
+                ? "translate-y-0 opacity-100"
+                : "translate-y-12 opacity-0"
+            }`}
+          >
             Your Space.
             <br />
             Your Business.
@@ -29,12 +47,24 @@ function Hero() {
             Your Future.
           </h1>
 
-          <p className="mt-8 text-neutral-300 text-xl max-w-xl">
+          <p
+            className={`mt-8 text-neutral-300 text-xl max-w-xl transition-all duration-1000 delay-300 ease-out ${
+              appLoaded
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }`}
+          >
             Discover talented creatives, premium spaces and endless
             opportunities.
           </p>
 
-          <div className="flex flex-wrap gap-5 mt-12">
+          <div
+            className={`flex flex-wrap gap-5 mt-12 transition-all duration-1000 delay-500 ease-out ${
+              appLoaded
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
+            }`}
+          >
             <button className="bg-[#c19b6c] hover:bg-white transition-all duration-300 text-black px-8 py-4 uppercase tracking-[0.2em] font-semibold">
               Explore Services
             </button>

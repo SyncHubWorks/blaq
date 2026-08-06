@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
+import MobileMenu from "../components/home/MobileMenu";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -29,7 +30,8 @@ function Login() {
         </Link>
       </div>
       <div className="grid lg:grid-cols-2 min-h-screen">
-        {/* ================= LEFT SIDE ================= */}
+        {/* ================= LEFT SIDE (Desktop) ================= */}
+
         <div className="hidden lg:flex flex-col items-center justify-center border-r border-neutral-800 px-16">
           <h1 className="text-7xl font-bold tracking-[0.35em]">BLAQ</h1>
 
@@ -37,7 +39,7 @@ function Login() {
             Beauty • Lifestyle • Art • Commerce
           </p>
 
-          <div className="w-20 h-[px] bg-[#c19b6c] my-10"></div>
+          <div className="w-20 h-px bg-[#c19b6c] my-10"></div>
 
           <p className="text-neutral-400 text-center leading-8 max-w-md">
             Welcome to the premier creative platform where customers discover
@@ -47,8 +49,23 @@ function Login() {
         </div>
 
         {/* ================= RIGHT SIDE ================= */}
-        <div className="flex items-center justify-center px-8">
+
+        <div className="flex items-center justify-center px-8 py-24 lg:py-0">
           <div className="w-full max-w-md">
+            {/* Mobile Branding */}
+
+            <div className="lg:hidden text-center mb-14">
+              <h1 className="text-5xl font-bold tracking-[0.35em] text-white">
+                BLAQ
+              </h1>
+
+              <p className="mt-4 uppercase tracking-[0.45em] text-[#c19b6c] text-[10px]">
+                Beauty • Lifestyle • Art • Commerce
+              </p>
+
+              <div className="w-16 h-px bg-[#c19b6c] mx-auto my-8"></div>
+            </div>
+
             <h2 className="text-4xl font-bold mb-3">Welcome Back</h2>
 
             <p className="text-neutral-400 mb-10">
@@ -57,6 +74,7 @@ function Login() {
 
             <form onSubmit={handleUserLogin} className="space-y-7">
               {/* Email */}
+
               <div>
                 <label className="block text-xs uppercase tracking-[0.25em] text-neutral-500 mb-3">
                   Email Address
@@ -72,6 +90,7 @@ function Login() {
               </div>
 
               {/* Password */}
+
               <div>
                 <div className="flex justify-between mb-3">
                   <label className="text-xs uppercase tracking-[0.25em] text-neutral-500">
@@ -95,8 +114,6 @@ function Login() {
                 />
               </div>
 
-              {/* Login Button */}
-
               {/* Remember Me */}
 
               <div className="flex items-center justify-between text-sm">
@@ -114,7 +131,7 @@ function Login() {
                 disabled={isLoggingIn}
                 className="w-full bg-white text-black py-4 uppercase tracking-[0.25em] font-semibold hover:bg-[#c19b6c] transition-all duration-300"
               >
-                {isLoggingIn ? "Signing up..." : "Sign In"}
+                {isLoggingIn ? "Signing In..." : "Sign In"}
               </button>
 
               {/* Register */}

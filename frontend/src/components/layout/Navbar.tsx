@@ -1,16 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import NavLink from "../common/NavLink";
-
-const navigation = [
-  { label: "Home", to: "#home" },
-  { label: "Services", to: "#services" },
-  { label: "Creative Spaces", to: "#spaces" },
-  { label: "About Us", to: "#about" },
-  { label: "Contact", to: "#contact" },
-];
+import MobileMenu from "../home/MobileMenu";
+import { navigation } from "../../data/navigation";
 
 function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-8">
@@ -26,7 +23,7 @@ function Navbar() {
           </span>
         </a>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
 
         <nav className="hidden lg:flex items-center gap-8">
           {navigation.map((item) => (
@@ -52,15 +49,23 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Toggle */}
 
         <button
           className="lg:hidden text-white hover:text-[#c19b6c] transition-colors"
-          aria-label="Open Menu"
+          aria-label="Toggle Menu"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <Menu size={26} />
+          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
+
+      {/* Mobile Menu */}
+
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+      />
     </header>
   );
 }

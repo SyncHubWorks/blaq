@@ -19,7 +19,7 @@ function Products() {
   ];
 
   return (
-    <section className="bg-[#050505] text-white py-32">
+    <section id="products" className="bg-[#050505] text-white py-32">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* LEFT */}

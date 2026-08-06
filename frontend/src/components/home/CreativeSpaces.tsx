@@ -9,7 +9,7 @@ function CreativeSpaces() {
   ];
 
   return (
-    <section className="bg-black text-white py-28">
+    <section id="spaces" className="bg-black text-white py-28">
       <div className="max-w-7xl mx-auto px-8">
         <div className="rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-950">
           <div className="grid lg:grid-cols-2">

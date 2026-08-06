@@ -18,7 +18,7 @@ function Events() {
   ];
 
   return (
-    <section className="bg-black text-white py-32">
+    <section id="events" className="bg-black text-white py-32">
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center">
           <span className="uppercase tracking-[0.35em] text-[#c19b6c] text-xs">

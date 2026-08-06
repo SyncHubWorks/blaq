@@ -1,13 +1,5 @@
-import { useNavigate } from "react-router";
-
 function BackButton() {
-  const navigate = useNavigate();
-
-  function handleback() {
-    navigate.back();
-  }
-
-  return <button onClick={handleback}>Go back</button>;
+  return <section>Back Button Component</section>;
 }
 
 export default BackButton;
